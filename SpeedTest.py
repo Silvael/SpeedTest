@@ -11,39 +11,34 @@ import sys
 import os
 
 
+#52.428.800
+
 # Geschwindigkeit messen findet in dieser Funktion statt
-def measure(url="http://www.speedtestx.de/testfiles/data_50mb.test", intervall=2, buf=10):
+def measure(url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=1024):
     tStart = datetime.now()
     amount = 0
     x = 0
 
     f = urllib.request.urlopen(url)
-    # schleife liest in  buf
-    while ((len(f.read(buf)) == buf) and (x <= 60)):
+    # schleife liest in  buf  - beim letzten Mal ist len < buf
+    while ((len(f.read(buf)) == buf) ):
         print("#")
         amount = amount + buf
         tEnd = datetime.now()
 
     dif = (tEnd - tStart).total_seconds()
 
-    # wenn fertig berechne   - unklar zu was der else Teil benötigt wird
-    if (dif >= intervall):
-        print (time.strftime("%H:%M:%S; "))
-        speed = (((amount / intervall) / 1000.00) * 8) / 1024
-        print (str(speed) + " Mbit/s")
+    # wenn fertig berechne
+    print (time.strftime("%H:%M:%S; "))
+    print("Data loaded:  " + str(amount))
+    speed = ((amount  / 10000.00) * 8) / 1024
+    print (str(speed) + " Mbit/s")
 
-        amount = 0
-        tStart = datetime.now()
-        x = x + 1
-
-    else:
-        print("whats this ?")
-        amount = amount + buf
-
-
+#main
 try:
-    measure(buf=1024, intervall=1)
-    #measure( url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=102400, intervall=1)
+    measure()
+    #measure(buf=1024)
+    #measure( url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=102400)
 except  KeyboardInterrupt:
 
     exit(0)
