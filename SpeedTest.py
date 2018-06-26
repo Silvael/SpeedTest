@@ -26,7 +26,7 @@ def measure(url="http://www.speedtestx.de/testfiles/data_50mb.test", intervall=2
 
     dif = (tEnd - tStart).total_seconds()
 
-    # wenn fertig
+    # wenn fertig berechne   - unklar zu was der else Teil benötigt wird
     if (dif >= intervall):
         print (time.strftime("%H:%M:%S; "))
         speed = (((amount / intervall) / 1000.00) * 8) / 1024
@@ -42,8 +42,8 @@ def measure(url="http://www.speedtestx.de/testfiles/data_50mb.test", intervall=2
 
 
 try:
-    measure(buf=102400, intervall=1)
-    #measure( url="http://www.speedtestx.de/testfiles/data_1mb.test", buf=1024, intervall=1)
+    measure(buf=1024, intervall=1)
+    #measure( url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=102400, intervall=1)
 except  KeyboardInterrupt:
 
     exit(0)
