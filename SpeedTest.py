@@ -14,31 +14,36 @@ import os
 #52.428.800
 
 # Geschwindigkeit messen findet in dieser Funktion statt
-def measure(url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=1024):
-    tStart = datetime.now()
-    amount = 0
-    x = 0
+def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
+    try:
+        tStart = datetime.now()
+        amount = 0
+        x = 0
 
-    f = urllib.request.urlopen(url)
-    # schleife liest in  buf  - beim letzten Mal ist len < buf
-    while ((len(f.read(buf)) == buf) ):
-        print("#")
-        amount = amount + buf
-        tEnd = datetime.now()
+        f = urllib.request.urlopen(url)
+        # schleife liest in  buf  - beim letzten Mal ist len < buf
+        while ((len(f.read(buf)) == buf) ):
+            print("#")
+            amount = amount + buf
+            tEnd = datetime.now()
 
-    dif = (tEnd - tStart).total_seconds()
+        dif = (tEnd - tStart).total_seconds()
 
-    # wenn fertig berechne
-    print (time.strftime("%H:%M:%S; "))
-    print("Data loaded:  " + str(amount))
-    speed = ((amount  / 10000.00) * 8) / 1024
-    print (str(speed) + " Mbit/s")
+        # wenn fertig berechne
+        print("Seconds total: " + str(dif))
+        print("Data loaded:  " + str(amount) + " bytes  == " + str( (amount / 1024) /1024 ) + " Megabyte ")
+        speed = amount * 8  / 1000000 / dif
+        print ("Speed: " + str(speed) + " Mbit/s  (  calculated by formula:  data in bytes * 8  : 1.000.000 : seconds )" )
+    except:
+        print("open the URL http://www.speedtestx.de/  in Your browser and fill out the captcha")
+
+
 
 #main
 try:
-    measure()
-    #measure(buf=1024)
-    #measure( url="http://www.speedtestx.de/testfiles/data_50mb.test", buf=102400)
+    #measure()
+    measure(buf=1024)
+    #measure( url="http://www.speedtestx.de/testfiles/data_500mb.test", buf=102400)
 except  KeyboardInterrupt:
 
     exit(0)
