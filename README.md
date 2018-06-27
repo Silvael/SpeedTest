@@ -3,7 +3,7 @@
 # Quelle unbekannt  - Basis im Internet gefunden war aber unvollständig
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 
-Calculation is done by the formula
+Calculation is done by the formula: 
 data in bytes * 8  : 1.000.000 : seconds    
 remember:  one bytes is 8 Bit   :-)   
 
