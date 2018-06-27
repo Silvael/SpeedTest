@@ -1,5 +1,4 @@
 # simple speedTest in Python 3.6
-# Quelle unbekannt  - Basis im Internet gefunden war aber unvollständig
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 # !/usr/bin/python
 import urllib.request
@@ -12,12 +11,11 @@ import os
 
 
 
-# Geschwindigkeit messen findet in dieser Funktion statt
+# do it ...
 def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
     try:
         tStart = datetime.now()
         amount = 0
-
 
         f = urllib.request.urlopen(url)
         # schleife liest in  buf  - beim letzten Mal ist len < buf
@@ -28,15 +26,13 @@ def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
 
         dif = (tEnd - tStart).total_seconds()
 
-        # wenn fertig berechne
+        # now we are finished and ready to calculate
         print("Seconds total: " + str(dif))
         print("Data loaded:  " + str(amount) + " bytes  == " + str( (amount / 1024) /1024 ) + " Megabyte ")
         speed = amount * 8  / 1000000 / dif
         print ("Speed: " + str(speed) + " Mbit/s  (  calculated by formula:  data in bytes * 8  : 1.000.000 : seconds )" )
     except:
         print("open the URL http://www.speedtestx.de/  in Your browser and fill out the captcha")
-
-
 
 #main
 try:
