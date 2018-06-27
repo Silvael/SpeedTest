@@ -1,10 +1,10 @@
 # pysamples
-# simple speedTest prg written in Python 3.6
+# simple speedTest script written in Python 3.6
 # Quelle unbekannt  - Basis im Internet gefunden war aber unvollständig
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 
 Calculation is done by the formula
-data in bytes * 8  : 1.000.000 : seconds
+data in bytes * 8  : 1.000.000 : seconds    Note:  one bytes is 8 Bit   
 
 e.g. in my place it takes about 16 seconds to download a 100 MB File
 
