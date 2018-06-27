@@ -4,7 +4,8 @@
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 
 Calculation is done by the formula
-data in bytes * 8  : 1.000.000 : seconds    Note:  one bytes is 8 Bit   
+data in bytes * 8  : 1.000.000 : seconds    
+remember:  one bytes is 8 Bit   :-)   
 
 e.g. in my place it takes about 16 seconds to download a 100 MB File
 
