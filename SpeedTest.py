@@ -1,4 +1,4 @@
-# speedTest in Python 3.6
+# simple speedTest in Python 3.6
 # Quelle unbekannt  - Basis im Internet gefunden war aber unvollständig
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 # !/usr/bin/python
@@ -11,14 +11,13 @@ import sys
 import os
 
 
-#52.428.800
 
 # Geschwindigkeit messen findet in dieser Funktion statt
 def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
     try:
         tStart = datetime.now()
         amount = 0
-        x = 0
+
 
         f = urllib.request.urlopen(url)
         # schleife liest in  buf  - beim letzten Mal ist len < buf
@@ -45,5 +44,4 @@ try:
     measure(buf=1024)
     #measure( url="http://www.speedtestx.de/testfiles/data_500mb.test", buf=102400)
 except  KeyboardInterrupt:
-
     exit(0)
