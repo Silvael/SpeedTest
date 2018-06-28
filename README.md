@@ -1,6 +1,5 @@
-# pysamples
-# simple speedTest script written in Python 3.6
-# Quelle unbekannt  - Basis im Internet gefunden war aber unvollständig
+# simple speedTest script written and tested in Python 3.6
+
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 
 Calculation is done by the formula: 
