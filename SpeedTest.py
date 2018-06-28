@@ -1,4 +1,4 @@
-# simple speedTest in Python 3.6
+# simple speedTest script written and tested with Python 3.6
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 # !/usr/bin/python
 import urllib.request
