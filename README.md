@@ -1,4 +1,4 @@
-# simple speedTest script written and tested in Python 3.6
+# script which detects the speed of your internet connection -  written and tested in Python 3.6
 
 #before usage goto http://www.speedtestx.de and fill out the captcha to get download permission
 
