@@ -11,14 +11,14 @@ import os
 
 
 
-# do it ...
+#do it ...
 def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
     try:
         tStart = datetime.now()
         amount = 0
-
+        #fetches data from http://www.speedtestx.de/
         f = urllib.request.urlopen(url)
-        # schleife liest in  buf  - beim letzten Mal ist len < buf
+        # loop reads data into the buffer buf  - until len < buf
         while ((len(f.read(buf)) == buf) ):
             print("#")
             amount = amount + buf
@@ -29,7 +29,7 @@ def measure(url="http://www.speedtestx.de/testfiles/data_100mb.test", buf=1024):
         # now we are finished and ready to calculate
         print("Seconds total: " + str(dif))
         print("Data loaded:  " + str(amount) + " bytes  == " + str( (amount / 1024) /1024 ) + " Megabyte ")
-        speed = amount * 8  / 1000000 / dif
+        speed = amount * 8  / 1000 / 1000/ dif
         print ("Speed: " + str(speed) + " Mbit/s  (  calculated by formula:  data in bytes * 8  : 1.000.000 : seconds )" )
     except:
         print("open the URL http://www.speedtestx.de/  in Your browser and fill out the captcha")
